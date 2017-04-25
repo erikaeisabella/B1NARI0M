@@ -1,0 +1,6 @@
+--CHAMADO--
+Realizar Atendimento (Técnico alterar o status para "Em Andamento")
+Cancelar Chamado (Cliente e técnico cancela chamado)
+Finalizar Chamado (Técnico conclui chamado)
+--USUARIO--
+Alterar Senha (Admin altera senha dos técnicos)
