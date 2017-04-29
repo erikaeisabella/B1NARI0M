@@ -1,0 +1,6 @@
+Cliente (Não está excluindo)
+Chamado (Não lista)
+Usuario (Excluindo não testado)
+Equipamento (Não altera a etiquetae nem exclui)
+Menu (Não alterando, nem excluindo)
+Perfil (Não excluindo)
