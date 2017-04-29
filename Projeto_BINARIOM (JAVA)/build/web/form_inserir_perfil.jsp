@@ -33,14 +33,21 @@
                             <div class="col-xs-4 col-md-2">
                                 <div class="form-group">
                                     <label class="form-control-label">Nome<span class="form-asterisk">*</span></label>
-                                    <input type="text" class="form-control" name="nome" required="">
+                                    <input type="text" class="form-control" name="nome" required>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    
-                    <div>
-                        <button type="submit" class="btn btn-primary">Salvar</button>
+
+                        <div class="col-xs-4 col-md-2">
+                            <div class="form-group">
+                                <label class="form-control-label">Descricao<span class="form-asterisk">*</span></label>
+                                <textarea class="form-control" name="descricao" required></textarea>
+                            </div>
+                        </div>
+
+                        <div>
+                            <button type="submit" class="btn btn-primary">Salvar</button>
+                        </div>
                     </div>
                 </div>
             </div>

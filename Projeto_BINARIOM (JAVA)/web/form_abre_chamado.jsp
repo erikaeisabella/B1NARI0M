@@ -93,10 +93,11 @@
                                     <input type="text" class="form-control" name="equipamento_etiqueta" required>
                                 </div>
                             </div>
+
                             <div class="col-xs-4 col-md-4">
                                 <div class="form-group">
-                                    <label class="form-control-label">Data Abertura<span class="form-asterisk">*</span></label>
-                                    <input type="date" class="form-control" name="da" readonly>
+                                    <label class="form-control-label">Responsavel<span class="form-asterisk">*</span></label>
+                                    <input type="text" class="form-control" name="usuario_matricula" readonly value="">
                                 </div>
                             </div>
                         </div>

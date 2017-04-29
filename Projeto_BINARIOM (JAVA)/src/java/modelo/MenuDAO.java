@@ -40,7 +40,6 @@ public class MenuDAO extends Conexao {
     }
 
     public Menu listarPorId(int id) throws Exception {
-        PerfilDAO pDAO = new PerfilDAO();
         Menu m = new Menu();
         conectar();
         Statement stm = con.createStatement();
@@ -48,6 +47,7 @@ public class MenuDAO extends Conexao {
         ResultSet rs = stm.executeQuery("SELECT * FROM menu WHERE id=" + id);
 
         if (rs.next()) {
+            PerfilDAO pDAO = new PerfilDAO();
             m.setId(rs.getInt("id"));
             m.setNome(rs.getString("nome"));
             m.setLink(rs.getString("link"));
@@ -59,7 +59,8 @@ public class MenuDAO extends Conexao {
 
     public void alterar(Menu m) throws Exception {
         conectar();
-        PreparedStatement pstm = con.prepareStatement("UPDATE menu SET nome=?, link=?, id_perfil=? WHERE id=?");
+        String sql = "UPDATE menu SET nome=?, link=?, id_perfil=? WHERE id = ?"; 
+        PreparedStatement pstm = con.prepareStatement(sql);
 
         pstm.setString(1, m.getNome());
         pstm.setString(2, m.getLink());
@@ -70,7 +71,7 @@ public class MenuDAO extends Conexao {
         desconectar();
     }
 
-    public void exclui(Menu m) throws Exception {
+    public void excluir(Menu m) throws Exception {
         conectar();
         String sql = "DELETE FROM menu WHERE id=?";
         PreparedStatement pstm = con.prepareStatement(sql);

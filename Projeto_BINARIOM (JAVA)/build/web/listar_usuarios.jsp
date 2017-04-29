@@ -12,7 +12,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="css/bootstrap-3.3.7-dist/css/bootstrap.min.css">
-        <title>Lista de Clientes</title>
+        <title>Lista de Usuarios</title>
     </head>
     <%@page import="modelo.Cliente"%>
     <%@page import="modelo.ClienteDAO"%>
@@ -28,7 +28,6 @@
                             <tr>
                                 <th>MÁTRICULA</th>
                                 <th>NOME</th>
-                                <th>SENHA</th>
                                 <th>PERFIL</th>
                                 <th colspan="2">OPÇÕES</th>
                             </tr>
@@ -44,8 +43,7 @@
                             <tr>
                                 <td><%= u.getMatricula()%></td>
                                 <td><%= u.getNome()%></td>
-                                <td><%= u.getSenha()%></td>
-                                <td></td>
+                                <td><%=u.getPerfil().getNome() %></td>
                                 <td>
                                     <a href="form_altera_usuario.jsp?matricula='<%=u.getMatricula()%>'">Alterar</a>
                                     <a href="#" onclick="excluir(<%=u.getMatricula()%>, '<%=u.getNome()%>')">Excluir</a>

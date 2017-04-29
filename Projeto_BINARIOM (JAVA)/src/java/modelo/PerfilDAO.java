@@ -11,6 +11,7 @@ public class PerfilDAO extends Conexao {
 
         pstm.setString(1, p.getNome());
         pstm.setString(2, p.getDescricao());
+        
         pstm.execute();
         desconectar();
 
@@ -27,10 +28,27 @@ public class PerfilDAO extends Conexao {
 
         while (rs.next()) {
             Perfil p = new Perfil();
-
             p.setId(rs.getInt("id"));
             p.setNome(rs.getString("nome"));
             p.setDescricao(rs.getString("descricao"));
+            perfis.add(p);
+        }
+        desconectar();
+        return perfis;
+    }
+        public ArrayList<Perfil> listarPerfis() throws Exception {
+
+        ArrayList<Perfil> perfis = new ArrayList<Perfil>();
+
+        conectar();
+        Statement stm = con.createStatement();
+
+        ResultSet rs = stm.executeQuery("SELECT id, nome FROM perfil");
+
+        while (rs.next()) {
+            Perfil p = new Perfil();
+            p.setId(rs.getInt("id"));
+            p.setNome(rs.getString("nome"));
             perfis.add(p);
         }
         desconectar();
@@ -68,7 +86,7 @@ public class PerfilDAO extends Conexao {
 
     public void excluir(Perfil p) throws Exception {
         conectar();
-        String sql = "DELETE FROM perfil WHERE id = ?";
+        String sql = "DELETE FROM perfil WHERE id=?";
         PreparedStatement pstm = con.prepareStatement(sql);
 
         pstm.setInt(1, p.getId());

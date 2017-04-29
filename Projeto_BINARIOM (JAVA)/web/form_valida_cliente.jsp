@@ -7,7 +7,6 @@
 <%@page import="modelo.Cliente"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
-    Cliente c = new Cliente();
     String matricula = request.getParameter("matricula");
 %>
 <!DOCTYPE html>

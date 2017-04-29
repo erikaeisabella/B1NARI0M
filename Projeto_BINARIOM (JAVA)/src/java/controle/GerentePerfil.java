@@ -43,7 +43,9 @@ public class GerentePerfil extends HttpServlet {
 
             int id = 0;
             String nome = request.getParameter("nome");
+            String descricao = request.getParameter("descricao");
             String op = request.getParameter("op");
+
             Perfil p = new Perfil();
             PerfilDAO pDAO = new PerfilDAO();
 
@@ -57,20 +59,26 @@ public class GerentePerfil extends HttpServlet {
 
                 p.setId(id);
                 p.setNome(nome);
+                p.setDescricao(descricao);
 
                 switch (op) {
                     case "inserir":
                         pDAO.inserir(p);
                         break;
-                        
+
+                    case "alterar":
+                        pDAO.alterar(p);
+                        break;
+
                     case "excluir":
                         pDAO.excluir(p);
                         break;
                 }
+
+                response.sendRedirect("listar_perfil.jsp");
             } catch (Exception e) {
                 out.print("ERRO:" + e);
             }
-            response.sendRedirect("listar_perfil.jsp");
             out.println("</body>");
             out.println("</html>");
         }

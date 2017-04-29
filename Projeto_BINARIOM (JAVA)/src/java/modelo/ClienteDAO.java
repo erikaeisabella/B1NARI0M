@@ -24,8 +24,7 @@ public class ClienteDAO extends Conexao {
 
     public void alterar(Cliente c) throws Exception {
         conectar();
-        String sql = "UPDATE cliente SET matricula=?, nome=?, cpf=?, setor=?, telefone=?"
-                + "WHERE matricula = ?";
+        String sql = "UPDATE cliente SET matricula=?, nome=?, cpf=?, setor=?, telefone=? WHERE matricula = ?";
         PreparedStatement pstm = con.prepareStatement(sql);
 
         pstm.setString(1, c.getMatricula());

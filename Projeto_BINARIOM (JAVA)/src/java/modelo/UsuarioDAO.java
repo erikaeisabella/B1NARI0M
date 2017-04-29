@@ -7,7 +7,7 @@ public class UsuarioDAO extends Conexao {
 
     public void inserir(Usuario u) throws Exception {
         conectar();
-        String sql = "INSERTO INTO usuario (matricula, nome, senha, id_perfil) VALUES (?,?,?,?)";
+        String sql = "INSERT INTO usuario (matricula, nome, senha, id_perfil) VALUES (?,?,?,?)";
         PreparedStatement pstm = con.prepareStatement(sql);
 
         pstm.setString(1, u.getMatricula());
@@ -21,13 +21,13 @@ public class UsuarioDAO extends Conexao {
 
     public ArrayList<Usuario> listar() throws Exception {
         Usuario u = new Usuario();
-        PerfilDAO pDAO = new PerfilDAO();
         ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
         conectar();
         Statement stm = con.createStatement();
         ResultSet rs = stm.executeQuery("SELECT * FROM usuario");
 
         while (rs.next()) {
+            PerfilDAO pDAO = new PerfilDAO();
             u.setMatricula(rs.getString("matricula"));
             u.setNome(rs.getString("nome"));
             u.setSenha(rs.getString("senha"));
@@ -40,12 +40,12 @@ public class UsuarioDAO extends Conexao {
 
     public Usuario listarPorMatricula(String matricula) throws Exception {
         Usuario u = new Usuario();
-        PerfilDAO pDAO = new PerfilDAO();
         conectar();
         Statement stm = con.createStatement();
-        ResultSet rs = stm.executeQuery("SELECT * FROM usuario WHERE matricula = " + matricula);
+        ResultSet rs = stm.executeQuery("SELECT * FROM usuario WHERE matricula=" + matricula);
 
         while (rs.next()) {
+            PerfilDAO pDAO = new PerfilDAO();
             u.setMatricula(rs.getString("matricula"));
             u.setNome(rs.getString("nome"));
             u.setSenha("senha");

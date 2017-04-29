@@ -37,16 +37,19 @@
                             
                             <!-- NÃO SEI O QUE TÁ ROLANDO AQUI-->
                             <%
-                                Chamado c = new Chamado();
+                                ChamadoDAO cDAO = new ChamadoDAO();
                                 ArrayList<Chamado> chamados = new ArrayList<Chamado>();
+                                
+                                chamados = cDAO.listarAbertos();
                                 try {
-                                    for (Chamado ch : c.listar()) {
+                                    for (Chamado c : chamados) {
                             %>
                             <tr>
-                                <td><%=ch.getBin()%></td>
-                                <td><%=ch.getStatus()%></td>
-                                <td><%=ch.getPrioridade()%></td>
-                                <td><%=ch.getDa()%></td>
+                                <td><%=c.getBin() %></td>
+                                <td><%=c.getStatus() %></td>
+                                <td><%=c.getPrioridade() %></td>
+                                <td><%=c.getDa() %></td>
+                                <td><%=c.getEquipamento().getEtiqueta() %></td>
                                 <td>
                                     link altera
                                     link exclui

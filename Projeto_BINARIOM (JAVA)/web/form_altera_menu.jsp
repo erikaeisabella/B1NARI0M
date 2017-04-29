@@ -14,12 +14,12 @@
     ArrayList<Perfil> perfis = new ArrayList<Perfil>();
     int id = Integer.parseInt(request.getParameter("id"));
     Menu m = new Menu();
+    MenuDAO mDAO = new MenuDAO();
     try {
-        MenuDAO mDAO = new MenuDAO();
         m = mDAO.listarPorId(id);
-        
+
         PerfilDAO pDAO = new PerfilDAO();
-        perfis = pDAO.listar();
+        perfis = pDAO.listarPerfis();
     } catch (Exception e) {
         out.print("ERRO:" + e);
     }
@@ -49,24 +49,24 @@
 
                         <div class="row row-sm-offset">
                             <input type="hidden" name="op" value="alterar">
-                            
-                            <div class="col-xs-4 col-md-3">
-                                <div class="form-group">
-                                    <label class="form-control-label">ID<span class="form-asterisk">*</span></label>
-                                    <input type="number" class="form-control" name="id" required value="<%=m.getId()%>">
-                                </div>
-                            </div>
-                            <div class="col-xs-4 col-md-3">
+                            <div class="col-xs-4 col-md-4">
                                 <div class="form-group">
                                     <label class="form-control-label">Nome<span class="form-asterisk">*</span></label>
-                                    <input type="text" class="form-control" name="nome" required value="<%=m.getNome()%>">
+                                    <input type="text" class="form-control" name="nome" required value="<%=m.getNome() %>">
+                                </div>
+                            </div>
+
+                            <div class="col-xs-4 col-md-4">
+                                <div class="form-group">
+                                    <label class="form-control-label">Link<span class="form-asterisk">*</span></label>
+                                    <input type="text" class="form-control" name="link" required value="<%=m.getLink() %>">
                                 </div>
                             </div>
 
                             <div class="col-xs-4 col-md-3">
                                 <div class="form-group">
                                     <label class="form-control-label">Link<span class="form-asterisk">*</span></label>
-                                    <input type="text" class="form-control" name="link" required value="<%=m.getLink()%>">
+                                    <input type="text" class="form-control" name="link" required value="<%=m.getLink() %>">
                                 </div>
                             </div>
 
@@ -82,7 +82,7 @@
                                                     selecionado = "selected";
                                                 }
                                         %>
-                                        <option value="<%=p.getId()%>" <%=selecionado%>><%=p.getNome()%></option>
+                                        <option value="<%=p.getId()%>" <%=selecionado%>> <%=p.getNome()%></option>
                                         <% }%>
                                     </select>
                                 </div>

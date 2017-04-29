@@ -11,6 +11,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelo.Perfil;
+import modelo.Usuario;
+import modelo.UsuarioDAO;
 
 /**
  *
@@ -38,7 +41,39 @@ public class GerenciarUsuario extends HttpServlet {
             out.println("<title>Servlet GerenciarUsuario</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet GerenciarUsuario at " + request.getContextPath() + "</h1>");
+            
+            String matricula = request.getParameter("matricula");
+            String nome = request.getParameter("nome");
+            String senha = request.getParameter("senha");
+            int id_perfil = Integer.parseInt(request.getParameter("id_perfil"));
+            String op = request.getParameter("op");
+            
+            Usuario u = new Usuario();
+            Perfil p = new Perfil();
+            UsuarioDAO uDAO = new UsuarioDAO();
+            
+            try{
+                u.setMatricula(matricula);
+                u.setNome(nome);
+                u.setSenha(senha);
+                p.setId(id_perfil);
+                u.setPerfil(p);
+                
+                switch (op){
+                    case "inserir":
+                        uDAO.inserir(u);
+                        break;
+                        
+                    case "alterar":
+                        uDAO.alterar(u);
+                        break;
+                }
+                
+                response.sendRedirect("listar_usuarios.jsp");
+            } catch (Exception e){
+                out.print("ERRO: " + e);
+            }
+            
             out.println("</body>");
             out.println("</html>");
         }

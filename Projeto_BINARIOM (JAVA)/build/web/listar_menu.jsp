@@ -48,7 +48,7 @@
                                 <td><%= m.getPerfil().getNome() %></td>
                                 <td>
                                     <a href="form_altera_menu.jsp?id=<%=m.getId()%>">Alterar</a>
-                                    link exclui
+                                    <a href="gerenciar_menu.do?op=excluir&id=<%=m.getId()%>">Excluir</a>
                                 </td>
                             </tr>
 

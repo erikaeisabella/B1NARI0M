@@ -44,7 +44,7 @@ public class GerenciarCliente extends HttpServlet {
             String nome = request.getParameter("nome");
             String cpf = request.getParameter("cpf");
             String setor = request.getParameter("setor");
-            String telefone = ("telefone");
+            String telefone = request.getParameter("telefone");
             String op = request.getParameter("op");
 
             Cliente c = new Cliente();
@@ -76,8 +76,12 @@ public class GerenciarCliente extends HttpServlet {
                     case "alterar":
                         c.alterar();
                         break;
+                        
+                    case "excluir":
+                        c.excluir();
                 }
                 response.sendRedirect("listar_clientes.jsp");
+                
             } catch (Exception e) {
                 out.print("ERRO:" + e);
             }

@@ -46,13 +46,17 @@ public class GerenciarMenu extends HttpServlet {
             MenuDAO mDAO = new MenuDAO();
             Perfil p = new Perfil();
             
+            int id = 0;
             String nome = request.getParameter("nome");
             String link = request.getParameter("link");
-            int id = 0;
             int id_perfil = Integer.parseInt(request.getParameter("id_perfil"));
             String op = request.getParameter("op");
 
             try {
+                if(op.equals("excluir")){
+                    id = Integer.parseInt(request.getParameter("id"));
+                }
+                
                 m.setId(id);
                 m.setLink(link);
                 m.setNome(nome);
@@ -66,6 +70,10 @@ public class GerenciarMenu extends HttpServlet {
 
                     case "alterar":
                         mDAO.alterar(m);
+                        break;
+                        
+                    case "excluir":
+                        mDAO.excluir(m);
                         break;
                 }
 

@@ -6,7 +6,7 @@
     ArrayList<Perfil> perfis = new ArrayList<Perfil>();
     try {
         PerfilDAO pDAO = new PerfilDAO();
-        perfis = pDAO.listar();
+        perfis = pDAO.listarPerfis();
     } catch (Exception e) {
         out.print("ERRO:" + e);
     }

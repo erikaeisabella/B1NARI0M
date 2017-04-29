@@ -1,7 +1,7 @@
 package modelo;
 
-import java.sql.Date;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Chamado {
 
@@ -11,10 +11,9 @@ public class Chamado {
     private String prioridade;
     private String localidade;
     private String observacao;
+    private Date da;
     private Equipamento equipamento;
     private Usuario usuario;
-    private Date da;
-    private String dr;
 
     public int getBin() {
         return bin;
@@ -89,9 +88,9 @@ public class Chamado {
 
     }
 
-    public ArrayList<Chamado> listar() throws Exception {
+    public ArrayList<Chamado> listarAbertos() throws Exception {
         ChamadoDAO cDAO = new ChamadoDAO();
-        return cDAO.listar();
+        return cDAO.listarAbertos();
     }
 
     public void listarPorBin(int bin) throws Exception {
@@ -104,7 +103,6 @@ public class Chamado {
         this.setObservacao(cDAO.listarPorBin(bin).getObservacao());
         this.setEquipamento(cDAO.listarPorBin(bin).getEquipamento());
         this.setUsuario(cDAO.listarPorBin(bin).getUsuario());
-        this.setDr(cDAO.listarPorBin(bin).getDr());
     }
 
     public Date getDa() {
@@ -115,11 +113,4 @@ public class Chamado {
         this.da = da;
     }
 
-    public String getDr() {
-        return dr;
-    }
-
-    public void setDr(String dr) {
-        this.dr = dr;
-    }
 }

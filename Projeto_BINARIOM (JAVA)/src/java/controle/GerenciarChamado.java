@@ -7,8 +7,6 @@ package controle;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.text.SimpleDateFormat;
-import java.sql.Date;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -45,29 +43,28 @@ public class GerenciarChamado extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
 
+            int bin = 0;
             String descricao = request.getParameter("descricao");
             String localidade = request.getParameter("localidade");
-            int bin = 0;
-
-            String equipamento_etiqueta = request.getParameter("equipamento_etiqueta");
-            String usuario_matricula = request.getParameter("usuario_matricula");
             String status = request.getParameter("status");
             String prioridade = request.getParameter("prioridade");
             String observacao = request.getParameter("observacao");
+            String equipamento_etiqueta = request.getParameter("equipamento_etiqueta");
+            String usuario_matricula = request.getParameter("usuario_matricula");
             String op = request.getParameter("op");
-            
+
             ChamadoDAO cDAO = new ChamadoDAO();
             Chamado c = new Chamado();
             Usuario u = new Usuario();
             Equipamento eq = new Equipamento();
-            
+
             try {
                 c.setBin(bin);
                 c.setDescricao(descricao);
                 c.setLocalidade(localidade);
                 u.setMatricula(usuario_matricula);
                 c.setUsuario(u);
-                    eq.setEtiqueta(Integer.parseInt(equipamento_etiqueta));
+                eq.setEtiqueta(Integer.parseInt(equipamento_etiqueta));
                 c.setEquipamento(eq);
                 c.setStatus(status);
                 c.setPrioridade(prioridade);

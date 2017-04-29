@@ -11,8 +11,9 @@
 <%
     ArrayList<Perfil> perfis = new ArrayList<Perfil>();
     try {
+        //Carregar a lista de perfis disponiveis
         PerfilDAO pDAO = new PerfilDAO();
-        perfis = pDAO.listar();
+        perfis = pDAO.listarPerfis();
     } catch (Exception e) {
         out.print("ERRO:" + e);
 
@@ -38,11 +39,12 @@
         <div class="mbr-section mbr-section-nopadding">
             <div class="container">
                 <div class="row">
-                    <form action="gerenciar_cliente.do" method="post">
+                    <form action="gerenciar_usuario.do" method="post">
 
                         <div class="row row-sm-offset">
 
                             <input type="hidden" name="op" value="inserir">
+                            
                             <div class="col-xs-4 col-md-2">
                                 <div class="form-group">
                                     <label class="form-control-label">Matricula<span class="form-asterisk">*</span></label>
@@ -60,9 +62,10 @@
                             <div class="col-xs-4 col-md-3">
                                 <div class="form-group">
                                     <label class="form-control-label">Senha<span class="form-asterisk">*</span></label>
-                                    <input type="text" class="form-control" name="cpf" required>
+                                    <input type="password" class="form-control" name="senha" required>
                                 </div>
                             </div>
+                            
                             <div class="col-xs-4 col-md-3">
                                 <div class="form-group">
                                     <label class="form-control-label">Perfil</label>

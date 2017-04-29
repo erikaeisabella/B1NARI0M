@@ -8,9 +8,9 @@
         <link rel="stylesheet" type="text/css" href="css/bootstrap-3.3.7-dist/css/bootstrap.min.css">
         <title>Lista de Perfis</title>
         <script type="text/javascript">
-            function excluir(id, nome) {
-                var url = "gerente_perfil.do?op=excluir&id=" + id;
-                if (confirm("Tem certeza que quer excluir o perfil: " + nome + "?")) {
+            function excluir(id) {
+                var url = "gerente_perfil.do?op=excluir&id="+id;
+                if (confirm("Tem certeza que quer excluir o perfil?")) {
                     window.open(url, "_self");
                 }
             }
@@ -29,6 +29,7 @@
                             <tr>
                                 <th>ID</th>
                                 <th>NOME</th>
+                                <th>DESCRIÇÃO</th>
                                 <th colspan="2">OPÇÕES</th>
                             </tr>
 
@@ -43,6 +44,7 @@
                             <tr>
                                 <td><%= p.getId()%></td>
                                 <td><%= p.getNome()%></td>
+                                <td><%= p.getDescricao()%></td>
                                 <td>
                                     <a href="form_altera_perfil.jsp?id=<%=p.getId()%>">Alterar</a>
                                     <a href="#" onclick="excluir(<%=p.getId()%>, '<%=p.getNome()%>')">Excluir</a>

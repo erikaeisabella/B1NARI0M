@@ -63,7 +63,7 @@
                             <div class="col-xs-4 col-md-3">
                                 <div class="form-group">
                                     <label class="form-control-label">Descricao<span class="form-asterisk">*</span></label>
-                                    <textarea rows="5" type="text" class="form-control" name="descricao" value="<%=eq.getDescricao() %>"></textarea>
+                                    <textarea rows="5" type="text" class="form-control" name="descricao"><%=eq.getDescricao() %></textarea>
                                 </div>
                             </div>
 

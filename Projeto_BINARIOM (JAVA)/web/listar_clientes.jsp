@@ -10,12 +10,20 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="css/bootstrap-3.3.7-dist/css/bootstrap.min.css">
         <title>Lista de Clientes</title>
+        <script type="text/javascript">
+            function excluir(matricula) {
+                var url = "gerenciar_cliente.do?op=excluir&matricula=" + matricula;
+                if (confirm("Tem certeza que quer excluir o cliente?")) {
+                    window.open(url, "_self");
+                }
+            }
+        </script>
     </head>
     <%@page import="modelo.Cliente"%>
     <%@page import="modelo.ClienteDAO"%>
     <body>
         <!------------------------------------- INPUTS ------------------------------------->
-        <form action="gerenciar_perfil.do" method="post">
+        <form action="gerenciar_cliente.do" method="post">
             <div class="mbr-section mbr-section-nopadding">
                 <div class="container">
                     <div class="container">
