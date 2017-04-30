@@ -19,53 +19,45 @@
     <%@page import="modelo.ChamadoDAO"%>
     <body>
         <!------------------------------------- INPUTS ------------------------------------->
-        <form action="gerenciar_chamado.do" method="post">
-            <div class="mbr-section mbr-section-nopadding">
+        <div class="mbr-section mbr-section-nopadding">
+            <div class="container">
                 <div class="container">
-                    <div class="container">
-                        <h2>Lista de Chamadados</h2>           
-                        <table class="table">
+                    <h2>Lista de Chamadados</h2>           
+                    <table class="table">
 
-                            <tr>
-                                <th>BIN</th>
-                                <th>STATUS</th>
-                                <th>PRIORIDADE</th>
-                                <th>SOLICITANTE</th>
-                                <th>DATA ABERTURA</th>
-                                <th colspan="2">OPÇÕES</th>
-                            </tr>
-                            
-                            <!-- NÃO SEI O QUE TÁ ROLANDO AQUI-->
-                            <%
-                                ChamadoDAO cDAO = new ChamadoDAO();
-                                ArrayList<Chamado> chamados = new ArrayList<Chamado>();
-                                
-                                chamados = cDAO.listarAbertos();
-                                try {
-                                    for (Chamado c : chamados) {
-                            %>
-                            <tr>
-                                <td><%=c.getBin() %></td>
-                                <td><%=c.getStatus() %></td>
-                                <td><%=c.getPrioridade() %></td>
-                                <td><%=c.getDa() %></td>
-                                <td><%=c.getEquipamento().getEtiqueta() %></td>
-                                <td>
-                                    link altera
-                                    link exclui
-                                </td>
-                            </tr>
+                        <tr>
+                            <th>BIN</th>
+                            <th>STATUS</th>
+                            <th>PRIORIDADE</th>
+                            <th>SOLICITANTE</th>
+                            <th>DATA ABERTURA</th>
+                            <th colspan="2">OPÇÕES</th>
+                        </tr>
 
-                            <%
-                                    }
-                                } catch (Exception e) {
-                                    out.print("ERRO:" + e);
-                                }
-                            %>
-                        </table>	
-                    </div>
+                        <!-- NÃO SEI O QUE TÁ ROLANDO AQUI-->
+                        <%
+                            Chamado ch = new Chamado();
+
+                            try {
+                                for (Chamado c : ch.listar()) {
+                        %>
+                        <tr>
+                            <td><%=c.getBin()%></td>
+                            <td>
+                                link altera
+                                link exclui
+                            </td>
+                        </tr>
+
+                        <%
+                            }
+                            } catch (Exception e) {
+                                out.print("ERRO:" + e);
+                            }
+                        %>
+                    </table>	
                 </div>
             </div>
-        </form>
+        </div>
     </body>
 </html>

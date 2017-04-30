@@ -30,25 +30,25 @@ public class ChamadoDAO extends Conexao {
         desconectar();
     }
 
-    public ArrayList<Chamado> listarAbertos() throws Exception {
+    public ArrayList<Chamado> listar() throws Exception {
+        
         ArrayList<Chamado> chamados = new ArrayList<Chamado>();
         Statement stm = con.createStatement();
         
         ResultSet rs = stm.executeQuery("SELECT * FROM chamado");
 
         while (rs.next()) {
+            
             Chamado c = new Chamado();
-            EquipamentoDAO eDAO = new EquipamentoDAO();
             c.setBin(rs.getInt("bin"));
             c.setDescricao(rs.getString("descricao"));
             c.setStatus(rs.getString("status"));
             c.setPrioridade(rs.getString("prioridade"));
             c.setObservacao(rs.getString("observacao"));
             c.setLocalidade(rs.getString("localidade"));
-            java.sql.Date dataAber = rs.getDate("data_abertura");
-            java.util.Date da = new java.util.Date(dataAber.getTime());
+                java.sql.Date dataAber = rs.getDate("data_abertura");
+                java.util.Date da = new java.util.Date(dataAber.getTime());
             c.setDa(da);
-            c.setEquipamento(eDAO.listarPorEtiqueta(rs.getInt("equipamento_etiqueta")));
             chamados.add(c);
         }
         return chamados;

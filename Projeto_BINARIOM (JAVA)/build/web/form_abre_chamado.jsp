@@ -96,10 +96,18 @@
 
                             <div class="col-xs-4 col-md-4">
                                 <div class="form-group">
-                                    <label class="form-control-label">Responsavel<span class="form-asterisk">*</span></label>
+                                    <label class="form-control-label">Técnico Responsavel<span class="form-asterisk">*</span></label>
                                     <input type="text" class="form-control" name="usuario_matricula" readonly value="">
                                 </div>
                             </div>
+
+                            <div class="col-xs-4 col-md-4">
+                                <div class="form-group">
+                                    <label class="form-control-label">Status<span class="form-asterisk">*</span></label>
+                                    <input type="text" class="form-control" name="status" value="">
+                                </div>
+                            </div>
+
                         </div>
                         <div>
                             <button type="submit" class="btn btn-primary">Salvar</button>

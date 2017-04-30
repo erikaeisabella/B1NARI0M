@@ -11,9 +11,9 @@
         <link rel="stylesheet" type="text/css" href="css/bootstrap-3.3.7-dist/css/bootstrap.min.css">
         <title>Lista de Clientes</title>
         <script type="text/javascript">
-            function excluir(matricula) {
+            function excluir(matricula,nome) {
                 var url = "gerenciar_cliente.do?op=excluir&matricula=" + matricula;
-                if (confirm("Tem certeza que quer excluir o cliente?")) {
+                if (confirm("Tem certeza que quer excluir o cliente?" + nome)) {
                     window.open(url, "_self");
                 }
             }

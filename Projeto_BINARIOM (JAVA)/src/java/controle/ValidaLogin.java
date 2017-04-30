@@ -11,6 +11,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import modelo.Usuario;
+import modelo.UsuarioDAO;
 
 /**
  *
@@ -35,10 +38,44 @@ public class ValidaLogin extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ValidaLogin</title>");            
+            out.println("<title>Servlet ValidaLogin</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ValidaLogin at " + request.getContextPath() + "</h1>");
+
+            HttpSession session = request.getSession();
+            
+            try {
+                String matricula = request.getParameter("matricula");
+                String senha = request.getParameter("senha");
+                
+                if (matricula.isEmpty()) {
+                    out.print("O campo Matricula deve ser preenchido!");
+                } else if (senha.isEmpty()) {
+                    out.print("O campo Senha deve ser preenchido!");
+                } else {
+                    
+                    Usuario u = new Usuario();
+                    UsuarioDAO uDAO = new UsuarioDAO();
+                    //Chama o metodo logar
+                    u = uDAO.logar(matricula, senha);
+                    //Verifica se o ID que foi pego é maior que zero, caso seja
+                    //significa que o usuario está logado
+                    if (u.getPerfil().getId() == 1) {
+                        //Seta o atributo usuario, assim se torna possivel recuperar tudo que há 
+                        //no usuario pois o tipo dele é u
+                        //Caso o id_perfil seja = 1 o perfil é de ADM
+                        session.setAttribute("usuario", u);
+                        response.sendRedirect("index.jsp");
+                    } else {
+                        //Caso seja 2 = Técnico
+                        session.setAttribute("usuario", u);
+                        response.sendRedirect("index.jsp");
+                    }
+                }
+            } catch (Exception e) {
+                out.print("ERRO: " + e);
+            }
+
             out.println("</body>");
             out.println("</html>");
         }

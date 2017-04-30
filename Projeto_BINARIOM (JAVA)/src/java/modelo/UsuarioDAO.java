@@ -40,9 +40,12 @@ public class UsuarioDAO extends Conexao {
 
     public Usuario listarPorMatricula(String matricula) throws Exception {
         Usuario u = new Usuario();
+        
         conectar();
+        
+        String sql = "SELECT * FROM usuario WHERE matricula=" + matricula;
         Statement stm = con.createStatement();
-        ResultSet rs = stm.executeQuery("SELECT * FROM usuario WHERE matricula=" + matricula);
+        ResultSet rs = stm.executeQuery(sql);
 
         while (rs.next()) {
             PerfilDAO pDAO = new PerfilDAO();
@@ -56,6 +59,7 @@ public class UsuarioDAO extends Conexao {
 
     public void alterar(Usuario u) throws Exception {
         conectar();
+        
         String sql = "UPDATE usuario SET matricula=?, nome=?, senha=?, id_perfil=? WHERE matricula = ?";
         PreparedStatement pstm = con.prepareStatement(sql);
 
@@ -78,5 +82,29 @@ public class UsuarioDAO extends Conexao {
 
         pstm.execute();
         desconectar();
+    }
+
+    public Usuario logar(String matricula, String senha) throws Exception {
+        Usuario u = new Usuario();
+        
+        conectar();
+        
+        String sql = "SELECT * FROM usuario WHERE matricula=?";
+        PreparedStatement pstm = con.prepareStatement(sql);
+        
+        pstm.setString(1, matricula);
+        
+        ResultSet rs = pstm.executeQuery();
+        if (rs.next()) {
+            if (rs.getString("senha").equals(senha)) {
+                u.setMatricula(rs.getString("matricula"));
+                u.setNome(rs.getString("nome"));
+                u.setSenha(rs.getString("senha"));
+                PerfilDAO pDAO = new PerfilDAO();
+                u.setPerfil(pDAO.listarPorId(rs.getInt("id_perfil")));
+            }
+        }
+        desconectar();
+        return u;
     }
 }

@@ -15,7 +15,7 @@ public class ClienteDAO extends Conexao {
         pstm.setString(2, c.getNome());
         pstm.setString(3, c.getCpf());
         pstm.setString(4, c.getSetor());
-        pstm.setString(5, c.getTelefone());
+        pstm.setInt(5, c.getTelefone());
 
         pstm.execute();
         desconectar();
@@ -31,7 +31,7 @@ public class ClienteDAO extends Conexao {
         pstm.setString(2, c.getNome());
         pstm.setString(3, c.getCpf());
         pstm.setString(4, c.getSetor());
-        pstm.setString(5, c.getTelefone());
+        pstm.setInt(5, c.getTelefone());
         pstm.setString(6, c.getMatricula());
 
         pstm.execute();
@@ -50,7 +50,7 @@ public class ClienteDAO extends Conexao {
             c.setNome(rs.getString("nome"));
             c.setCpf(rs.getString("cpf"));
             c.setSetor(rs.getString("setor"));
-            c.setTelefone(rs.getString("telefone"));
+            c.setTelefone(rs.getInt("telefone"));
             clientes.add(c);
         }
         desconectar();
@@ -68,7 +68,7 @@ public class ClienteDAO extends Conexao {
             c.setNome(rs.getString("nome"));
             c.setCpf(rs.getString("cpf"));
             c.setSetor(rs.getString("setor"));
-            c.setTelefone(rs.getString("telefone"));
+            c.setTelefone(rs.getInt("telefone"));
         }
         desconectar();
         return c;

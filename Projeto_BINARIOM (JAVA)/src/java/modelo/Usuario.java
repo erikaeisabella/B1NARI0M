@@ -1,7 +1,7 @@
 package modelo;
 
 public class Usuario {
-    
+
     private String matricula;
     private String nome;
     private String senha;
@@ -38,5 +38,15 @@ public class Usuario {
     public void setPerfil(Perfil perfil) {
         this.perfil = perfil;
     }
-    
+
+    public void inserir() throws Exception {
+        UsuarioDAO uDAO = new UsuarioDAO();
+        uDAO.inserir(this);
+    }
+
+    public void alterar() throws Exception {
+        UsuarioDAO uDAO = new UsuarioDAO();
+        uDAO.alterar(this);
+    }
+
 }

@@ -64,68 +64,62 @@ public final class listar_005fchamados_jsp extends org.apache.jasper.runtime.Htt
       out.write("    \n");
       out.write("    <body>\n");
       out.write("        <!------------------------------------- INPUTS ------------------------------------->\n");
-      out.write("        <form action=\"gerenciar_chamado.do\" method=\"post\">\n");
-      out.write("            <div class=\"mbr-section mbr-section-nopadding\">\n");
+      out.write("        <div class=\"mbr-section mbr-section-nopadding\">\n");
+      out.write("            <div class=\"container\">\n");
       out.write("                <div class=\"container\">\n");
-      out.write("                    <div class=\"container\">\n");
-      out.write("                        <h2>Lista de Chamadados</h2>           \n");
-      out.write("                        <table class=\"table\">\n");
+      out.write("                    <h2>Lista de Chamadados</h2>           \n");
+      out.write("                    <table class=\"table\">\n");
       out.write("\n");
-      out.write("                            <tr>\n");
-      out.write("                                <th>BIN</th>\n");
-      out.write("                                <th>STATUS</th>\n");
-      out.write("                                <th>PRIORIDADE</th>\n");
-      out.write("                                <th>SOLICITANTE</th>\n");
-      out.write("                                <th>DATA ABERTURA</th>\n");
-      out.write("                                <th colspan=\"2\">OPÇÕES</th>\n");
-      out.write("                            </tr>\n");
-      out.write("                            \n");
-      out.write("                            <!-- NÃO SEI O QUE TÁ ROLANDO AQUI-->\n");
-      out.write("                            ");
+      out.write("                        <tr>\n");
+      out.write("                            <th>BIN</th>\n");
+      out.write("                            <th>STATUS</th>\n");
+      out.write("                            <th>PRIORIDADE</th>\n");
+      out.write("                            <th>SOLICITANTE</th>\n");
+      out.write("                            <th>DATA ABERTURA</th>\n");
+      out.write("                            <th colspan=\"2\">OPÇÕES</th>\n");
+      out.write("                        </tr>\n");
+      out.write("\n");
+      out.write("                        <!-- NÃO SEI O QUE TÁ ROLANDO AQUI-->\n");
+      out.write("                        ");
 
-                                ChamadoDAO cDAO = new ChamadoDAO();
-                                ArrayList<Chamado> chamados = new ArrayList<Chamado>();
-                                
-                                chamados = cDAO.listarAbertos();
-                                try {
-                                    for (Chamado c : chamados) {
-                            
-      out.write("\n");
-      out.write("                            <tr>\n");
-      out.write("                                <td>");
-      out.print(c.getBin() );
-      out.write("</td>\n");
-      out.write("                                <td>");
-      out.print(c.getStatus() );
-      out.write("</td>\n");
-      out.write("                                <td>");
-      out.print(c.getPrioridade() );
-      out.write("</td>\n");
-      out.write("                                <td>");
-      out.print(c.getDa() );
-      out.write("</td>\n");
-      out.write("                                <td>");
-      out.print(c.getEquipamento().getEtiqueta() );
-      out.write("</td>\n");
-      out.write("                                <td>\n");
-      out.write("                                    link altera\n");
-      out.write("                                    link exclui\n");
-      out.write("                                </td>\n");
-      out.write("                            </tr>\n");
-      out.write("\n");
-      out.write("                            ");
+                            Chamado ch = new Chamado();
 
-                                    }
-                                } catch (Exception e) {
-                                    out.print("ERRO:" + e);
-                                }
-                            
+                            try {
+                                for (Chamado c : ch.listar()) {
+                        
       out.write("\n");
-      out.write("                        </table>\t\n");
-      out.write("                    </div>\n");
+      out.write("                        <tr>\n");
+      out.write("                            <td>");
+      out.print(c.getBin());
+      out.write("</td>\n");
+      out.write("                            <td>");
+      out.print(c.getStatus());
+      out.write("</td>\n");
+      out.write("                            <td>");
+      out.print(c.getPrioridade());
+      out.write("</td>\n");
+      out.write("                            <td>\n");
+      out.write("                                link altera\n");
+      out.write("                                link exclui\n");
+      out.write("                            </td>\n");
+      out.write("                        </tr>\n");
+      out.write("\n");
+      out.write("                        ");
+
+                            }
+                        
+      out.write("\n");
+      out.write("                        ");
+
+                            } catch (Exception e) {
+                                out.print("ERRO:" + e);
+                            }
+                        
+      out.write("\n");
+      out.write("                    </table>\t\n");
       out.write("                </div>\n");
       out.write("            </div>\n");
-      out.write("        </form>\n");
+      out.write("        </div>\n");
       out.write("    </body>\n");
       out.write("</html>\n");
     } catch (Throwable t) {

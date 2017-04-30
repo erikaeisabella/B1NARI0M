@@ -66,7 +66,7 @@ public class GerenciarCliente extends HttpServlet {
                 c.setNome(nome);
                 c.setCpf(cpf);
                 c.setSetor(setor);
-                c.setTelefone(telefone);
+                c.setTelefone(Integer.parseInt(telefone));
 
                 switch (op) {
                     case "inserir":
@@ -79,6 +79,7 @@ public class GerenciarCliente extends HttpServlet {
                         
                     case "excluir":
                         c.excluir();
+                        break;
                 }
                 response.sendRedirect("listar_clientes.jsp");
                 

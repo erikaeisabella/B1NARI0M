@@ -62,9 +62,9 @@ public class GerenciarChamado extends HttpServlet {
                 c.setBin(bin);
                 c.setDescricao(descricao);
                 c.setLocalidade(localidade);
-                u.setMatricula(usuario_matricula);
+                    u.setMatricula(usuario_matricula);
                 c.setUsuario(u);
-                eq.setEtiqueta(Integer.parseInt(equipamento_etiqueta));
+                    eq.setEtiqueta(Integer.parseInt(equipamento_etiqueta));
                 c.setEquipamento(eq);
                 c.setStatus(status);
                 c.setPrioridade(prioridade);
@@ -73,6 +73,9 @@ public class GerenciarChamado extends HttpServlet {
                 switch (op) {
                     case "inserir":
                         cDAO.inserir(c);
+                        break;
+                        
+                    case "cancelar":
                         break;
                 }
 

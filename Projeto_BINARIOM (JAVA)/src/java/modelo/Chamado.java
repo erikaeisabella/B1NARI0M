@@ -88,9 +88,9 @@ public class Chamado {
 
     }
 
-    public ArrayList<Chamado> listarAbertos() throws Exception {
+    public ArrayList<Chamado> listar() throws Exception {
         ChamadoDAO cDAO = new ChamadoDAO();
-        return cDAO.listarAbertos();
+        return cDAO.listar();
     }
 
     public void listarPorBin(int bin) throws Exception {

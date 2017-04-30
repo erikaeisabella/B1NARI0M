@@ -8,7 +8,7 @@ public class Cliente {
     private String nome;
     private String cpf;
     private String setor;
-    private String telefone;
+    private int telefone;
 
     public String getMatricula() {
         return matricula;
@@ -42,11 +42,11 @@ public class Cliente {
         this.setor = setor;
     }
 
-    public String getTelefone() {
+    public int getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(String telefone) {
+    public void setTelefone(int telefone) {
         this.telefone = telefone;
     }
 
