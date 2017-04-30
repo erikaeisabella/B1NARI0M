@@ -4,38 +4,14 @@ html,body{height: 100%;}
 .container-fluid{position: relative; min-height: 100%; }
 #body{background: #1c3954;}
 /*====HEADER====*/
-#header{
-    height: 40px;
-    padding: 5px 5px;    
-    background: white;}
 #icon_logo{
     position: relative;
     float: left;
     left: 0px;
     top: 0px;
     float: left;
-    margin: 5px;}
-#data{
-    width: 280px;
-    height: 25px;
-    display: none;
-    position: relative;
-    top: -25px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    font-size: 1.2em;
-    font-family: "Lato",sans-serif;}
-#clock{
-    display: none;
-    position: relative;
-    width: 120px;
-    height: 30px;
-    top: -52px;
-    float: right;
-    right: 150px;
-    text-align: center;
-    font-size: 1.5em;}
+    margin: 5px;
+}
 /*====SECTION====*/
 #section{
     position: relative;
