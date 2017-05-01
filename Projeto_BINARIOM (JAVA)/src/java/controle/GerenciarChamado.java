@@ -50,7 +50,6 @@ public class GerenciarChamado extends HttpServlet {
             String prioridade = request.getParameter("prioridade");
             String observacao = request.getParameter("observacao");
             String equipamento_etiqueta = request.getParameter("equipamento_etiqueta");
-            String usuario_matricula = request.getParameter("usuario_matricula");
             String op = request.getParameter("op");
 
             ChamadoDAO cDAO = new ChamadoDAO();
@@ -62,8 +61,6 @@ public class GerenciarChamado extends HttpServlet {
                 c.setBin(bin);
                 c.setDescricao(descricao);
                 c.setLocalidade(localidade);
-                    u.setMatricula(usuario_matricula);
-                c.setUsuario(u);
                     eq.setEtiqueta(Integer.parseInt(equipamento_etiqueta));
                 c.setEquipamento(eq);
                 c.setStatus(status);

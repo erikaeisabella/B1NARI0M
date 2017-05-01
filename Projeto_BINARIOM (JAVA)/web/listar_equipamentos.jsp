@@ -9,7 +9,7 @@
         <title>Lista de Euipamentos</title>
         <script type="text/javascript">
             function excluir(etiqueta) {
-                var url = "gerenciar_equipamento.do?op=excluir&etiqueta=" + etiqueta;
+                var url = "gerenciar_equipamento.do?op=excluir&etiqueta="+etiqueta;
                 if (confirm("Tem certeza que quer excluir o equipamento?")) {
                     window.open(url, "_self");
                 }

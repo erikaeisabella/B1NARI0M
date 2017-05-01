@@ -82,38 +82,26 @@ public final class listar_005fchamados_jsp extends org.apache.jasper.runtime.Htt
       out.write("                        <!-- NÃO SEI O QUE TÁ ROLANDO AQUI-->\n");
       out.write("                        ");
 
-                            Chamado ch = new Chamado();
-
-                            try {
-                                for (Chamado c : ch.listar()) {
+                        try {
+                            Chamado chamado = new Chamado();
+                            for (Chamado c : chamado.listar()) {
                         
       out.write("\n");
       out.write("                        <tr>\n");
       out.write("                            <td>");
-      out.print(c.getBin());
-      out.write("</td>\n");
-      out.write("                            <td>");
-      out.print(c.getStatus());
-      out.write("</td>\n");
-      out.write("                            <td>");
-      out.print(c.getPrioridade());
+      out.print(c.getBin() );
       out.write("</td>\n");
       out.write("                            <td>\n");
       out.write("                                link altera\n");
       out.write("                                link exclui\n");
       out.write("                            </td>\n");
       out.write("                        </tr>\n");
-      out.write("\n");
       out.write("                        ");
 
                             }
-                        
-      out.write("\n");
-      out.write("                        ");
-
-                            } catch (Exception e) {
-                                out.print("ERRO:" + e);
-                            }
+                        } catch (Exception e) {
+                            out.print("ERRO:" + e);
+                        }
                         
       out.write("\n");
       out.write("                    </table>\t\n");

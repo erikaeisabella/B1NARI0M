@@ -24,13 +24,13 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="css/bootstrap-3.3.7-dist/css/bootstrap.min.css">
-        <title>Inserir Cliente</title>
+        <title>Inserir Usuario</title>
     </head>
     <body>
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 text-xs-center">
-                    <h3 class="mbr-section-title display-2 text-center">Inserir Cliente</h3>
+                    <h3 class="mbr-section-title display-2 text-center">Inserir Usuario</h3>
                     <small class="mbr-section-subtitle"></small>
                 </div>
             </div>

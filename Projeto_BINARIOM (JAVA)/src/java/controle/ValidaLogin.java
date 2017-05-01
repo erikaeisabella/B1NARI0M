@@ -65,7 +65,7 @@ public class ValidaLogin extends HttpServlet {
                         //no usuario pois o tipo dele é u
                         //Caso o id_perfil seja = 1 o perfil é de ADM
                         session.setAttribute("usuario", u);
-                        response.sendRedirect("index.jsp");
+                        response.sendRedirect("pagina_adm.jsp");
                     } else {
                         //Caso seja 2 = Técnico
                         session.setAttribute("usuario", u);

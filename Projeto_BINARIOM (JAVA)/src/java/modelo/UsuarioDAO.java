@@ -20,13 +20,14 @@ public class UsuarioDAO extends Conexao {
     }
 
     public ArrayList<Usuario> listar() throws Exception {
-        Usuario u = new Usuario();
+
         ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
         conectar();
         Statement stm = con.createStatement();
         ResultSet rs = stm.executeQuery("SELECT * FROM usuario");
 
         while (rs.next()) {
+            Usuario u = new Usuario();
             PerfilDAO pDAO = new PerfilDAO();
             u.setMatricula(rs.getString("matricula"));
             u.setNome(rs.getString("nome"));
@@ -40,9 +41,9 @@ public class UsuarioDAO extends Conexao {
 
     public Usuario listarPorMatricula(String matricula) throws Exception {
         Usuario u = new Usuario();
-        
+
         conectar();
-        
+
         String sql = "SELECT * FROM usuario WHERE matricula=" + matricula;
         Statement stm = con.createStatement();
         ResultSet rs = stm.executeQuery(sql);
@@ -59,7 +60,7 @@ public class UsuarioDAO extends Conexao {
 
     public void alterar(Usuario u) throws Exception {
         conectar();
-        
+
         String sql = "UPDATE usuario SET matricula=?, nome=?, senha=?, id_perfil=? WHERE matricula = ?";
         PreparedStatement pstm = con.prepareStatement(sql);
 
@@ -86,14 +87,14 @@ public class UsuarioDAO extends Conexao {
 
     public Usuario logar(String matricula, String senha) throws Exception {
         Usuario u = new Usuario();
-        
+
         conectar();
-        
+
         String sql = "SELECT * FROM usuario WHERE matricula=?";
         PreparedStatement pstm = con.prepareStatement(sql);
-        
+
         pstm.setString(1, matricula);
-        
+
         ResultSet rs = pstm.executeQuery();
         if (rs.next()) {
             if (rs.getString("senha").equals(senha)) {

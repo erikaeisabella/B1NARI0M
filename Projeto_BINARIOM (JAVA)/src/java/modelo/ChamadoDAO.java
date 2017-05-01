@@ -30,16 +30,17 @@ public class ChamadoDAO extends Conexao {
         desconectar();
     }
 
-    public ArrayList<Chamado> listar() throws Exception {
+    public ArrayList<Chamado> listarAbertos() throws Exception {
         
         ArrayList<Chamado> chamados = new ArrayList<Chamado>();
+        conectar();
         Statement stm = con.createStatement();
         
-        ResultSet rs = stm.executeQuery("SELECT * FROM chamado");
+        ResultSet rs = stm.executeQuery("SELECT * FROM chamado WHERE status='aberto'");
 
         while (rs.next()) {
-            
             Chamado c = new Chamado();
+            UsuarioDAO uDAO = new UsuarioDAO();
             c.setBin(rs.getInt("bin"));
             c.setDescricao(rs.getString("descricao"));
             c.setStatus(rs.getString("status"));
@@ -56,6 +57,7 @@ public class ChamadoDAO extends Conexao {
 
     public ArrayList<Chamado> listarEmAndamento() throws Exception {
         ArrayList<Chamado> chamados = new ArrayList<Chamado>();
+                conectar();
         Statement stm = con.createStatement();
         ResultSet rs = stm.executeQuery("SELECT * FROM chamado WHERE status=" + "");
 
@@ -81,6 +83,7 @@ public class ChamadoDAO extends Conexao {
 
     public Chamado listarPorBin(int bin) throws Exception {
         Chamado c = new Chamado();
+                conectar();
         Statement stm = con.createStatement();
         ResultSet rs = stm.executeQuery("SELECT * FROM chamado WHERE bin=" + bin);
 
