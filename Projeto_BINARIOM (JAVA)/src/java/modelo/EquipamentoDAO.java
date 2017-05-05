@@ -22,7 +22,7 @@ public class EquipamentoDAO extends Conexao {
     
     public void alterar(Equipamento e) throws Exception {
         conectar();
-        String sql = "UPDATE equipamento SET etiqueta=?, marca=?, tipo=?, descricao=?, data_instalacao=? WHERE etiqueta = ?";
+        String sql = "UPDATE equipamento SET etiqueta=?, marca=?, tipo=?, descricao=?, data_instalacao=? WHERE etiqueta=?";
         PreparedStatement pstm = con.prepareStatement(sql);
 
         pstm.setInt(1, e.getEtiqueta());

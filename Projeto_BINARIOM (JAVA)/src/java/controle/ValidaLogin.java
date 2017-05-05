@@ -43,7 +43,6 @@ public class ValidaLogin extends HttpServlet {
             out.println("<body>");
 
             HttpSession session = request.getSession();
-            
             try {
                 String matricula = request.getParameter("matricula");
                 String senha = request.getParameter("senha");
@@ -53,11 +52,9 @@ public class ValidaLogin extends HttpServlet {
                 } else if (senha.isEmpty()) {
                     out.print("O campo Senha deve ser preenchido!");
                 } else {
-                    
-                    Usuario u = new Usuario();
                     UsuarioDAO uDAO = new UsuarioDAO();
                     //Chama o metodo logar
-                    u = uDAO.logar(matricula, senha);
+                   Usuario u = uDAO.logar(matricula, senha);
                     //Verifica se o ID que foi pego é maior que zero, caso seja
                     //significa que o usuario está logado
                     if (u.getPerfil().getId() == 1) {

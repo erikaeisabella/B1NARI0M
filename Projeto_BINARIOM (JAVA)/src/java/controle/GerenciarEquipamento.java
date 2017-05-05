@@ -41,9 +41,13 @@ public class GerenciarEquipamento extends HttpServlet {
             String descricao = request.getParameter("descricao");
             String data_instalacao = request.getParameter("data_instalacao");
             String op = request.getParameter("op");
-            Equipamento e = new Equipamento();
+
 
             try {
+                if (op.equals("excluir") || op.equals("alterar")) {
+                    etiqueta = Integer.parseInt(request.getParameter("etiqueta"));
+                }
+                
                 if (marca.isEmpty()) {
                     out.print("Preencha o campo marca");
                 } else if (tipo.isEmpty()) {
@@ -51,7 +55,7 @@ public class GerenciarEquipamento extends HttpServlet {
                 } else if (descricao.isEmpty()) {
                     out.print("Preencha a descrição do Equipamento");
                 }
-
+                Equipamento e = new Equipamento();
                 e.setEtiqueta(etiqueta);
                 e.setMarca(marca);
                 e.setTipo(tipo);
@@ -73,8 +77,8 @@ public class GerenciarEquipamento extends HttpServlet {
                 }
 
                 response.sendRedirect("listar_equipamentos.jsp");
-            } catch (Exception d) {
-                out.print("ERRO:" + d);
+            } catch (Exception x) {
+                out.print("ERRO:" + x);
             }
 
             out.println("</body>");

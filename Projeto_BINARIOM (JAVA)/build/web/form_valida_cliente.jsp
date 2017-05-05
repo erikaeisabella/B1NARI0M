@@ -18,7 +18,7 @@
     </head>
     <body>
         <!-- Resolver o problema das aspas-->
-        <form action="form_abre_chamado.jsp?matricula='<%=matricula%>'">
+        <form action="form_abre_chamado.jsp?matricula= '<%=matricula%>' ">
         <div class="mbr-section mbr-section-nopadding">
             <div class="container">
                 <div class="row">

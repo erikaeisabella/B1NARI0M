@@ -67,13 +67,13 @@ public final class form_005finserir_005fusuario_jsp extends org.apache.jasper.ru
       out.write("    <head>\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
       out.write("        <link rel=\"stylesheet\" type=\"text/css\" href=\"css/bootstrap-3.3.7-dist/css/bootstrap.min.css\">\n");
-      out.write("        <title>Inserir Cliente</title>\n");
+      out.write("        <title>Inserir Usuario</title>\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
       out.write("        <div class=\"container\">\n");
       out.write("            <div class=\"row\">\n");
       out.write("                <div class=\"col-xs-12 text-xs-center\">\n");
-      out.write("                    <h3 class=\"mbr-section-title display-2 text-center\">Inserir Cliente</h3>\n");
+      out.write("                    <h3 class=\"mbr-section-title display-2 text-center\">Inserir Usuario</h3>\n");
       out.write("                    <small class=\"mbr-section-subtitle\"></small>\n");
       out.write("                </div>\n");
       out.write("            </div>\n");

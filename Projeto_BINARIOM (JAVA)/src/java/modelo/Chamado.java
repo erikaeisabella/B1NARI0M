@@ -15,6 +15,7 @@ public class Chamado {
     private Equipamento equipamento;
     private Usuario usuario;
 
+
     public int getBin() {
         return bin;
     }

@@ -36,16 +36,14 @@ public class ChamadoDAO extends Conexao {
         conectar();
         Statement stm = con.createStatement();
         
-        ResultSet rs = stm.executeQuery("SELECT * FROM chamado WHERE status='aberto'");
+        ResultSet rs = stm.executeQuery("SELECT * FROM chamado WHERE status='Aberto'");
 
         while (rs.next()) {
             Chamado c = new Chamado();
-            UsuarioDAO uDAO = new UsuarioDAO();
             c.setBin(rs.getInt("bin"));
             c.setDescricao(rs.getString("descricao"));
             c.setStatus(rs.getString("status"));
             c.setPrioridade(rs.getString("prioridade"));
-            c.setObservacao(rs.getString("observacao"));
             c.setLocalidade(rs.getString("localidade"));
                 java.sql.Date dataAber = rs.getDate("data_abertura");
                 java.util.Date da = new java.util.Date(dataAber.getTime());
@@ -111,7 +109,7 @@ public class ChamadoDAO extends Conexao {
         int num = 0;
         conectar();
         Statement stm = con.createStatement();
-        ResultSet rs = stm.executeQuery("SELECT count(status) FROM chamado WHERE status=" + "aberto");
+        ResultSet rs = stm.executeQuery("SELECT count(status) FROM chamado WHERE status=" + "Aberto");
 
         if (rs.next()) {
             num = rs.getInt("status");

@@ -1,7 +1,6 @@
 <%-- 
     Document   : pagina_adm
     Created on : 01/05/2017, 16:49:24
-    Author     : Antônio Carlos
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
