@@ -52,7 +52,6 @@ public class GerenciarChamado extends HttpServlet {
             String equipamento_etiqueta = request.getParameter("equipamento_etiqueta");
             String op = request.getParameter("op");
 
-            ChamadoDAO cDAO = new ChamadoDAO();
             Chamado c = new Chamado();
             Usuario u = new Usuario();
             Equipamento eq = new Equipamento();

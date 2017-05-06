@@ -83,7 +83,7 @@
                             <div class="col-xs-4 col-md-4">
                                 <div class="form-group">
                                     <label class="form-control-label">Localidade<span class="form-asterisk">*</span></label>
-                                    <input type="text" class="form-control" name="localidade" required>
+                                    <input type="text" class="form-control" name="local" required>
                                 </div>
                             </div>
 

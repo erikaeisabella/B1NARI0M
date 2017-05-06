@@ -1,0 +1,16 @@
+SMAP
+listar_005fchamados_jsp.java
+JSP
+*S JSP
+*F
++ 0 listar_chamados.jsp
+listar_chamados.jsp
+*L
+5,28:49
+33,7:78
+39,2:85
+41,4:87,3
+45,5:99
+50,5:105
+54,9:110
+*E
