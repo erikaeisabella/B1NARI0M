@@ -1,11 +1,11 @@
 package modelo;
 
+import java.util.ArrayList;
+
 public class Equipamento {
 
     private int etiqueta;
-    private String marca;
     private String tipo;
-    private String descricao;
     private String dataInstalacao;
 
     public int getEtiqueta() {
@@ -16,28 +16,12 @@ public class Equipamento {
         this.etiqueta = etiqueta;
     }
 
-    public String getMarca() {
-        return marca;
-    }
-
-    public void setMarca(String marca) {
-        this.marca = marca;
-    }
-
     public String getTipo() {
         return tipo;
     }
 
     public void setTipo(String tipo) {
         this.tipo = tipo;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
     }
 
     public String getDataInstalacao() {
@@ -62,14 +46,13 @@ public class Equipamento {
     public void listarPorEtiqueta(int etiqueta) throws Exception {
         EquipamentoDAO eDAO = new EquipamentoDAO();
         this.setEtiqueta(eDAO.listarPorEtiqueta(etiqueta).getEtiqueta());
-        this.setMarca(eDAO.listarPorEtiqueta(etiqueta).getMarca());
         this.setTipo(eDAO.listarPorEtiqueta(etiqueta).getTipo());
-        this.setDescricao(eDAO.listarPorEtiqueta(etiqueta).getDescricao());
         this.setDataInstalacao(eDAO.listarPorEtiqueta(etiqueta).getDataInstalacao());
     }
 
-    public void listar() {
-
+    public ArrayList<Equipamento> listar() throws Exception{
+        EquipamentoDAO eDAO = new EquipamentoDAO();
+        return eDAO.listar();
     }
 
     public void excluir() throws Exception {

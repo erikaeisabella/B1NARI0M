@@ -9,7 +9,7 @@ public class Chamado {
     private String descricao;
     private String status;
     private String prioridade;
-    private String localidade;
+    private String local;
     private String observacao;
     private Date da;
     private Equipamento equipamento;
@@ -48,12 +48,12 @@ public class Chamado {
         this.prioridade = prioridade;
     }
 
-    public String getLocalidade() {
-        return localidade;
+    public String getLocal() {
+        return local;
     }
 
-    public void setLocalidade(String localidade) {
-        this.localidade = localidade;
+    public void setLocal(String local) {
+        this.local = local;
     }
 
     public String getObservacao() {
@@ -85,8 +85,9 @@ public class Chamado {
         cDAO.inserir(this);
     }
 
-    public void alterar() {
-
+    public void cancelar() throws Exception {
+        ChamadoDAO cDAO = new ChamadoDAO();
+        cDAO.cancelar(this);
     }
 
     public ArrayList<Chamado> listarAbertos() throws Exception {
@@ -100,7 +101,7 @@ public class Chamado {
         this.setDescricao(cDAO.listarPorBin(bin).getDescricao());
         this.setStatus(cDAO.listarPorBin(bin).getStatus());
         this.setPrioridade(cDAO.listarPorBin(bin).getPrioridade());
-        this.setLocalidade(cDAO.listarPorBin(bin).getLocalidade());
+        this.setLocal(cDAO.listarPorBin(bin).getLocal());
         this.setObservacao(cDAO.listarPorBin(bin).getObservacao());
         this.setEquipamento(cDAO.listarPorBin(bin).getEquipamento());
         this.setUsuario(cDAO.listarPorBin(bin).getUsuario());

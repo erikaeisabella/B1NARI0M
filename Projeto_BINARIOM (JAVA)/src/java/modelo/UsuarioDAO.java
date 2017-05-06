@@ -61,14 +61,13 @@ public class UsuarioDAO extends Conexao {
     public void alterar(Usuario u) throws Exception {
         conectar();
 
-        String sql = "UPDATE usuario SET matricula=?, nome=?, senha=?, id_perfil=? WHERE matricula = ?";
+        String sql = "UPDATE usuario SET nome=?, senha=?, id_perfil=? WHERE matricula = ?";
         PreparedStatement pstm = con.prepareStatement(sql);
 
-        pstm.setString(1, u.getMatricula());
-        pstm.setString(2, u.getNome());
-        pstm.setString(3, u.getSenha());
-        pstm.setInt(4, u.getPerfil().getId());
-        pstm.setString(5, u.getMatricula());
+        pstm.setString(1, u.getNome());
+        pstm.setString(2, u.getSenha());
+        pstm.setInt(3, u.getPerfil().getId());
+        pstm.setString(4, u.getMatricula());
 
         pstm.execute();
         desconectar();
@@ -76,7 +75,7 @@ public class UsuarioDAO extends Conexao {
 
     public void excluir(Usuario u) throws Exception {
         conectar();
-        String sql = "DELETE FROM chamado WHERE matricula = ?";
+        String sql = "DELETE FROM usuario WHERE matricula = ?";
         PreparedStatement pstm = con.prepareStatement(sql);
 
         pstm.setString(1, u.getMatricula());

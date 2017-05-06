@@ -32,12 +32,12 @@ public class Perfil {
         this.descricao = descricao;
     }
     
-    public void insere() throws Exception {
+    public void inserir() throws Exception {
         PerfilDAO pDAO = new PerfilDAO();
         pDAO.inserir(this);
     }
 
-    public void altera() throws Exception {
+    public void alterar() throws Exception {
         PerfilDAO pDAO = new PerfilDAO();
         pDAO.alterar(this);
     }
@@ -47,13 +47,7 @@ public class Perfil {
         return pDAO.listar();
     }
 
-    public void listarPorId(int id) throws Exception {
-        PerfilDAO pDAO = new PerfilDAO();
-        this.setId(pDAO.listarPorId(id).getId());
-        this.setNome(pDAO.listarPorId(id).getNome());
-    }
-
-    public void exclui() throws Exception {
+    public void excluir() throws Exception {
         PerfilDAO pDAO = new PerfilDAO();
         pDAO.excluir(this);
     }

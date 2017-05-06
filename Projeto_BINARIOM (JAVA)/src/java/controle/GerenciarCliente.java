@@ -50,39 +50,44 @@ public class GerenciarCliente extends HttpServlet {
             Cliente c = new Cliente();
 
             try {
-                if (matricula.isEmpty()) {
-                    out.print("Preencha o campo matricula");
-                } else if (nome.isEmpty()) {
-                    out.print("Preencha o campo nome");
-                } else if (cpf.isEmpty()) {
-                    out.print("Preencha o campo cpf");
-                } else if (setor.isEmpty()) {
-                    out.print("Preencha o campo setor");
-                } else if (telefone.isEmpty()) {
-                    out.print("Preencha o campo telefone");
+                if (op.equals("excluir") || op.equals("alterar")) {
+                    matricula = request.getParameter("matricula");
+                }
+                if (op.equals("inserir")) {
+                    if (matricula.isEmpty()) {
+                        out.print("Preencha o campo matricula");
+                    } else if (nome.isEmpty()) {
+                        out.print("Preencha o campo nome");
+                    } else if (cpf.isEmpty()) {
+                        out.print("Preencha o campo cpf");
+                    } else if (setor.isEmpty()) {
+                        out.print("Preencha o campo setor");
+                    }
                 }
 
                 c.setMatricula(matricula);
                 c.setNome(nome);
                 c.setCpf(cpf);
                 c.setSetor(setor);
-                c.setTelefone(Integer.parseInt(telefone));
+                if (!op.equals("excluir")) {
+                    c.setTelefone(Integer.parseInt(telefone));
+                }
 
                 switch (op) {
                     case "inserir":
                         c.inserir();
                         break;
-                        
+
                     case "alterar":
                         c.alterar();
                         break;
-                        
+
                     case "excluir":
                         c.excluir();
                         break;
                 }
                 response.sendRedirect("listar_clientes.jsp");
-                
+
             } catch (Exception e) {
                 out.print("ERRO:" + e);
             }

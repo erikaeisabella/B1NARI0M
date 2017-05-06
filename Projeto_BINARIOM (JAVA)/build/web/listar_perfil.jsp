@@ -1,5 +1,6 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="modelo.PerfilDAO"%>
+<%@page import="modelo.Perfil"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -9,14 +10,14 @@
         <title>Lista de Perfis</title>
         <script type="text/javascript">
             function excluir(id) {
-                var url = "gerente_perfil.do?op=excluir&id="+id;
+                var url = "gerenciar_perfil.do?op=excluir&id=" + id;
                 if (confirm("Tem certeza que quer excluir o perfil?")) {
                     window.open(url, "_self");
                 }
             }
         </script>
     </head>
-    <%@page import="modelo.Perfil"%>
+
     <body>
         <!------------------------------------- INPUTS ------------------------------------->
         <form action="gerente_perfil.do" method="post">
@@ -35,11 +36,10 @@
 
 
                             <%
-                                PerfilDAO pDAO = new PerfilDAO();
                                 ArrayList<Perfil> perfis = new ArrayList<Perfil>();
-                                perfis = pDAO.listar();
+                                Perfil perfil = new Perfil();
                                 try {
-                                    for (Perfil p : perfis) {
+                                    for (Perfil p : perfil.listar()) {
                             %>
                             <tr>
                                 <td><%= p.getId()%></td>

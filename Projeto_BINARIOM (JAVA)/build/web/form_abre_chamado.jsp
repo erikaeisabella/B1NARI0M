@@ -97,7 +97,7 @@
                             <div class="col-xs-4 col-md-4">
                                 <div class="form-group">
                                     <label class="form-control-label">Status<span class="form-asterisk">*</span></label>
-                                    <input type="text" class="form-control" name="status" value="">
+                                    <input type="text" class="form-control" readonly name="status">
                                 </div>
                             </div>
 

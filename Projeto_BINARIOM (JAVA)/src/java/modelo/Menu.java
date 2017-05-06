@@ -1,7 +1,9 @@
 package modelo;
 
+import java.util.ArrayList;
+
 public class Menu {
-    
+
     private int id;
     private String nome;
     private String link;
@@ -37,5 +39,25 @@ public class Menu {
 
     public void setPerfil(Perfil perfil) {
         this.perfil = perfil;
+    }
+
+    public void inserir() throws Exception {
+        MenuDAO mDAO = new MenuDAO();
+        mDAO.inserir(this);
+    }
+
+    public void alterar() throws Exception {
+        MenuDAO mDAO = new MenuDAO();
+        mDAO.alterar(this);
+    }
+
+    public ArrayList<Menu> listar() throws Exception {
+        MenuDAO mDAO = new MenuDAO();
+        return mDAO.listar();
+    }
+
+    public void excluir() throws Exception {
+        MenuDAO mDAO = new MenuDAO();
+        mDAO.excluir(this);
     }
 }

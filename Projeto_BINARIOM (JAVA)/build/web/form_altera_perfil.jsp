@@ -1,3 +1,5 @@
+<%@page import="modelo.PerfilDAO"%>
+<%@page import="modelo.Perfil"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -6,12 +8,13 @@
         <link rel="stylesheet" type="text/css" href="css/bootstrap-3.3.7-dist/css/bootstrap.min.css">
         <title>Alterar Perfil</title>
     </head>
-    <%@page import="modelo.Perfil"%>
+
     <%
         Perfil p = new Perfil();
+        PerfilDAO pDAO = new PerfilDAO();
         int id = Integer.parseInt(request.getParameter("id"));
         try {
-            p.listarPorId(id);
+            pDAO.listarPorId(id);
         } catch (Exception e) {
             out.print("ERRO:" + e);
         }
@@ -26,7 +29,7 @@
             </div>
         </div>
         <!------------------------------------- INPUTS ------------------------------------->
-        <form action="gerente_perfil.do" method="post">
+        <form action="gerenciar_perfil.do" method="post">
             <div class="mbr-section mbr-section-nopadding">
                 <div class="container">
 

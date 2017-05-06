@@ -38,42 +38,56 @@ public class GerenciarUsuario extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet GerenciarUsuario</title>");            
+            out.println("<title>Servlet GerenciarUsuario</title>");
             out.println("</head>");
             out.println("<body>");
-            
+
             String matricula = request.getParameter("matricula");
             String nome = request.getParameter("nome");
             String senha = request.getParameter("senha");
-            int id_perfil = Integer.parseInt(request.getParameter("id_perfil"));
+            String id_perfil = request.getParameter("id_perfil");
             String op = request.getParameter("op");
-            
+
             Usuario u = new Usuario();
             Perfil p = new Perfil();
             UsuarioDAO uDAO = new UsuarioDAO();
-            
-            try{
+
+            try {
+                if (op.equals("excluir") || op.equals("alterar")) {
+                    matricula = request.getParameter("matricula");
+                }
+                
+                if (op.equals("inserir")){
+                    
+                }
+                
                 u.setMatricula(matricula);
                 u.setNome(nome);
                 u.setSenha(senha);
-                p.setId(id_perfil);
-                u.setPerfil(p);
-                
-                switch (op){
+                if (!op.equals("excluir")) {
+                    p.setId(Integer.parseInt(id_perfil));
+                    u.setPerfil(p);
+                }
+
+                switch (op) {
                     case "inserir":
-                        uDAO.inserir(u);
+                        u.inserir();
                         break;
-                        
+
                     case "alterar":
-                        uDAO.alterar(u);
+                        u.alterar();
+                        break;
+
+                    case "excluir":
+                        u.excluir();
                         break;
                 }
-                
+
                 response.sendRedirect("listar_usuarios.jsp");
-            } catch (Exception e){
+            } catch (Exception e) {
                 out.print("ERRO: " + e);
             }
-            
+
             out.println("</body>");
             out.println("</html>");
         }

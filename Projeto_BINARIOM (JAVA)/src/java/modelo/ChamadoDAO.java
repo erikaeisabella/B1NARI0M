@@ -7,11 +7,11 @@ public class ChamadoDAO extends Conexao {
 
     public void inserir(Chamado c) throws Exception {
         conectar();
-        String sql = "INSERT INTO chamado (descricao,localidade,equipamento_etiqueta) VALUES (?,?,?)";
+        String sql = "INSERT INTO chamado (descricao,local,equipamento_etiqueta) VALUES (?,?,?)";
         PreparedStatement pstm = con.prepareStatement(sql);
 
         pstm.setString(1, c.getDescricao());
-        pstm.setString(2, c.getLocalidade());
+        pstm.setString(2, c.getLocal());
         pstm.setInt(3, c.getEquipamento().getEtiqueta());
 
         pstm.execute();
@@ -44,7 +44,7 @@ public class ChamadoDAO extends Conexao {
             c.setDescricao(rs.getString("descricao"));
             c.setStatus(rs.getString("status"));
             c.setPrioridade(rs.getString("prioridade"));
-            c.setLocalidade(rs.getString("localidade"));
+            c.setLocal(rs.getString("local"));
                 java.sql.Date dataAber = rs.getDate("data_abertura");
                 java.util.Date da = new java.util.Date(dataAber.getTime());
             c.setDa(da);
@@ -67,7 +67,7 @@ public class ChamadoDAO extends Conexao {
             c.setDescricao(rs.getString("descricao"));
             c.setStatus(rs.getString("status"));
             c.setPrioridade(rs.getString("prioridade"));
-            c.setLocalidade(rs.getString("localidade"));
+            c.setLocal(rs.getString("local"));
             c.setObservacao(rs.getString("observacao"));
             java.sql.Date dataAber = rs.getDate("data_abertura");
             java.util.Date da = new java.util.Date(dataAber.getTime());
@@ -92,7 +92,7 @@ public class ChamadoDAO extends Conexao {
             c.setDescricao(rs.getString("descricao"));
             c.setStatus(rs.getString("status"));
             c.setPrioridade(rs.getString("prioridade"));
-            c.setLocalidade(rs.getString("localidade"));
+            c.setLocal(rs.getString("local"));
             java.sql.Date dataAber = rs.getDate("data_abertura");
             java.util.Date da = new java.util.Date(dataAber.getTime());
             c.setDa(da);

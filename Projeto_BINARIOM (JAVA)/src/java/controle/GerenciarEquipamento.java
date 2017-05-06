@@ -31,35 +31,29 @@ public class GerenciarEquipamento extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet GerenteEquipamento</title>");
+            out.println("<title>Servlet GerenciarEquipamento</title>");
             out.println("</head>");
             out.println("<body>");
 
-            int etiqueta = Integer.parseInt(request.getParameter("etiqueta"));
-            String marca = request.getParameter("marca");
+            String etiqueta = request.getParameter("etiqueta");
             String tipo = request.getParameter("tipo");
-            String descricao = request.getParameter("descricao");
             String data_instalacao = request.getParameter("data_instalacao");
             String op = request.getParameter("op");
-
+            Equipamento e = new Equipamento();
 
             try {
                 if (op.equals("excluir") || op.equals("alterar")) {
-                    etiqueta = Integer.parseInt(request.getParameter("etiqueta"));
+                    etiqueta = request.getParameter("etiqueta");
                 }
                 
-                if (marca.isEmpty()) {
-                    out.print("Preencha o campo marca");
-                } else if (tipo.isEmpty()) {
-                    out.print("Descreva o tipo do equipamento");
-                } else if (descricao.isEmpty()) {
-                    out.print("Preencha a descrição do Equipamento");
+                if (op.equals("inserir")) {
+                    if (tipo.isEmpty()) {
+                        out.print("Descreva o tipo do equipamento");
+                    }
                 }
-                Equipamento e = new Equipamento();
-                e.setEtiqueta(etiqueta);
-                e.setMarca(marca);
+
+                e.setEtiqueta(Integer.parseInt(etiqueta));
                 e.setTipo(tipo);
-                e.setDescricao(descricao);
                 e.setDataInstalacao(data_instalacao);
 
                 switch (op) {

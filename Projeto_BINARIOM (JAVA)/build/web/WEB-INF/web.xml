@@ -17,8 +17,8 @@
         <servlet-class>controle.GerenciarChamado</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>GerentePerfil</servlet-name>
-        <servlet-class>controle.GerentePerfil</servlet-class>
+        <servlet-name>GerenciarPerfil</servlet-name>
+        <servlet-class>controle.GerenciarPerfil</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>GerenciarEquipamento</servlet-name>
@@ -45,8 +45,8 @@
         <url-pattern>/gerenciar_chamado.do</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>GerentePerfil</servlet-name>
-        <url-pattern>/gerente_perfil.do</url-pattern>
+        <servlet-name>GerenciarPerfil</servlet-name>
+        <url-pattern>/gerenciar_perfil.do</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>GerenciarEquipamento</servlet-name>

@@ -7,14 +7,12 @@ public class EquipamentoDAO extends Conexao {
 
     public void inserir(Equipamento e) throws Exception {
         conectar();
-        String sql = "INSERT INTO equipamento (etiqueta,marca,tipo,descricao,data_instalacao) VALUES (?,?,?,?,?)";
+        String sql = "INSERT INTO equipamento (etiqueta,tipo,data_instalacao) VALUES (?,?,?)";
         PreparedStatement pstm = con.prepareStatement(sql);
 
         pstm.setInt(1, e.getEtiqueta());
-        pstm.setString(2, e.getMarca());
-        pstm.setString(3, e.getTipo());
-        pstm.setString(4, e.getDescricao());
-        pstm.setString(5, e.getDataInstalacao());
+        pstm.setString(2, e.getTipo());
+        pstm.setString(3, e.getDataInstalacao());
 
         pstm.execute();
         desconectar();
@@ -22,15 +20,13 @@ public class EquipamentoDAO extends Conexao {
     
     public void alterar(Equipamento e) throws Exception {
         conectar();
-        String sql = "UPDATE equipamento SET etiqueta=?, marca=?, tipo=?, descricao=?, data_instalacao=? WHERE etiqueta=?";
+        String sql = "UPDATE equipamento SET etiqueta=?, tipo=?, data_instalacao=? WHERE etiqueta=?";
         PreparedStatement pstm = con.prepareStatement(sql);
 
         pstm.setInt(1, e.getEtiqueta());
-        pstm.setString(2, e.getMarca());
-        pstm.setString(3, e.getTipo());
-        pstm.setString(4, e.getDescricao());
-        pstm.setString(5, e.getDataInstalacao());
-        pstm.setInt(6, e.getEtiqueta());
+        pstm.setString(2, e.getTipo());
+        pstm.setString(3, e.getDataInstalacao());
+        pstm.setInt(4, e.getEtiqueta());
 
         pstm.execute();
         desconectar();
@@ -47,9 +43,7 @@ public class EquipamentoDAO extends Conexao {
         while (rs.next()) {
             Equipamento e = new Equipamento();
             e.setEtiqueta(rs.getInt("etiqueta"));
-            e.setMarca(rs.getString("marca"));
             e.setTipo(rs.getString("tipo"));
-            e.setDescricao(rs.getString("descricao"));
             e.setDataInstalacao(rs.getString("data_instalacao"));
             equipamentos.add(e);
         }
@@ -67,9 +61,7 @@ public class EquipamentoDAO extends Conexao {
 
         while (rs.next()) {
             e.setEtiqueta(rs.getInt("etiqueta"));
-            e.setMarca(rs.getString("marca"));
             e.setTipo(rs.getString("tipo"));
-            e.setDescricao(rs.getString("descricao"));
             e.setDataInstalacao(rs.getString("data_instalacao"));
         }
         desconectar();

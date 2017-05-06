@@ -14,8 +14,6 @@
         <link rel="stylesheet" type="text/css" href="css/bootstrap-3.3.7-dist/css/bootstrap.min.css">
         <title>Lista de Menu</title>
     </head>
-    <%@page import="modelo.Cliente"%>
-    <%@page import="modelo.ClienteDAO"%>
     <body>
         <!------------------------------------- INPUTS ------------------------------------->
         <form action="gerenciar_menu.do" method="post">
@@ -37,9 +35,9 @@
                             <%
                                 MenuDAO mDAO = new MenuDAO();
                                 ArrayList<Menu> menus = new ArrayList<Menu>();
-                                menus = mDAO.listar();
+                                Menu menu = new Menu();
                                 try {
-                                    for (Menu m : menus) {
+                                    for (Menu m : menu.listar()) {
                             %>
                             <tr>
                                 <td><%= m.getId()%></td>

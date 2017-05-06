@@ -33,14 +33,7 @@
                             <div class="col-xs-4 col-md-2">
                                 <div class="form-group">
                                     <label class="form-control-label"><span class="form-asterisk">Etiqueta*</span></label>
-                                    <input type="number" class="form-control" name="etiqueta" required>
-                                </div>
-                            </div>
-
-                            <div class="col-xs-4 col-md-2">
-                                <div class="form-group">
-                                    <label class="form-control-label">Marca<span class="form-asterisk">*</span></label>
-                                    <input type="text" class="form-control" name="marca" required>
+                                    <input type="text" class="form-control" name="etiqueta" required>
                                 </div>
                             </div>
 
@@ -50,14 +43,6 @@
                                     <input type="text" class="form-control" name="tipo" required>
                                 </div>
                             </div>
-
-                            <div class="col-xs-4 col-md-3">
-                                <div class="form-group">
-                                    <label class="form-control-label">Descricao<span class="form-asterisk">*</span></label>
-                                    <textarea rows="5" class="form-control" name="descricao"></textarea>
-                                </div>
-                            </div>
-
 
                             <div class="col-xs-4 col-md-2">
                                 <div class="form-group">

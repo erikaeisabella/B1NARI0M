@@ -22,7 +22,7 @@
             </div>
         </div>
         <!------------------------------------- INPUTS ------------------------------------->
-        <form action="gerente_perfil.do" method="post">
+        <form action="gerenciar_perfil.do" method="post">
             <div class="mbr-section mbr-section-nopadding">
                 <div class="container">
 

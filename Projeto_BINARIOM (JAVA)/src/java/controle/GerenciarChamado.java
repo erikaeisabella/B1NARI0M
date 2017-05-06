@@ -45,7 +45,7 @@ public class GerenciarChamado extends HttpServlet {
 
             int bin = 0;
             String descricao = request.getParameter("descricao");
-            String localidade = request.getParameter("localidade");
+            String local = request.getParameter("local");
             String status = request.getParameter("status");
             String prioridade = request.getParameter("prioridade");
             String observacao = request.getParameter("observacao");
@@ -60,7 +60,7 @@ public class GerenciarChamado extends HttpServlet {
             try {
                 c.setBin(bin);
                 c.setDescricao(descricao);
-                c.setLocalidade(localidade);
+                c.setLocal(local);
                     eq.setEtiqueta(Integer.parseInt(equipamento_etiqueta));
                 c.setEquipamento(eq);
                 c.setStatus(status);
@@ -69,10 +69,11 @@ public class GerenciarChamado extends HttpServlet {
 
                 switch (op) {
                     case "inserir":
-                        cDAO.inserir(c);
+                        c.inserir();
                         break;
                         
                     case "cancelar":
+                        c.cancelar();
                         break;
                 }
 

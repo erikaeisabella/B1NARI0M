@@ -43,7 +43,6 @@ public class GerenciarMenu extends HttpServlet {
             out.println("<body>");
             
             Menu m = new Menu();
-            MenuDAO mDAO = new MenuDAO();
             Perfil p = new Perfil();
             
             int id = 0;
@@ -65,15 +64,15 @@ public class GerenciarMenu extends HttpServlet {
 
                 switch (op) {
                     case "inserir":
-                        mDAO.inserir(m);
+                        m.inserir();
                         break;
 
                     case "alterar":
-                        mDAO.alterar(m);
+                        m.alterar();
                         break;
                         
                     case "excluir":
-                        mDAO.excluir(m);
+                        m.excluir();
                         break;
                 }
 

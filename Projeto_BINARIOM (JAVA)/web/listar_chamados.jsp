@@ -34,7 +34,7 @@
                                 DecimalFormat zf = new DecimalFormat("000000");
                                 Chamado chamado = new Chamado();
                                 try {
-                                    
+
                                     for (Chamado c : chamado.listarAbertos()) {
                             %>
                             <tr>

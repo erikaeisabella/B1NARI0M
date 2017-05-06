@@ -1,5 +1,7 @@
 package modelo;
 
+import java.util.ArrayList;
+
 public class Usuario {
 
     private String matricula;
@@ -47,6 +49,16 @@ public class Usuario {
     public void alterar() throws Exception {
         UsuarioDAO uDAO = new UsuarioDAO();
         uDAO.alterar(this);
+    }
+    
+    public ArrayList<Usuario> listar() throws Exception{
+        UsuarioDAO uDAO = new UsuarioDAO();
+        return uDAO.listar();
+    }
+    
+    public void excluir ()throws Exception{
+        UsuarioDAO uDAO = new UsuarioDAO();
+        uDAO.excluir(this);
     }
 
 }

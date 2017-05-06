@@ -8,11 +8,11 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
     int etiqueta = Integer.parseInt(request.getParameter("etiqueta"));
-    Equipamento eq = new Equipamento();
+    Equipamento e = new Equipamento();
     try{
-        eq.listarPorEtiqueta(etiqueta);
-    }catch (Exception e) {
-        out.print("ERRO: " + e);
+        e.listarPorEtiqueta(etiqueta);
+    }catch (Exception x) {
+        out.print("ERRO: " + x);
     }
 %>
 <!DOCTYPE html>
@@ -39,39 +39,25 @@
                         <div class="row row-sm-offset">
 
                             <input type="hidden" name="op" value="alterar">
+                            
                             <div class="col-xs-4 col-md-2">
                                 <div class="form-group">
-                                    <label class="form-control-label"><span class="form-asterisk">Etiqueta*</span></label>
-                                    <input type="number" class="form-control" name="etiqueta" required value="<%=eq.getEtiqueta()%>">
-                                </div>
-                            </div>
-
-                            <div class="col-xs-4 col-md-2">
-                                <div class="form-group">
-                                    <label class="form-control-label">Marca<span class="form-asterisk">*</span></label>
-                                    <input type="text" class="form-control" name="marca" required value="<%=eq.getMarca() %>">
+                                    <label class="form-control-label">Etiqueta<span class="form-asterisk">*</span></label>
+                                    <input type="text" class="form-control" name="etiqueta" required value="<%=e.getEtiqueta()%>">
                                 </div>
                             </div>
 
                             <div class="col-xs-4 col-md-3">
                                 <div class="form-group">
                                     <label class="form-control-label">Tipo<span class="form-asterisk">*</span></label>
-                                    <input type="text" class="form-control" name="tipo" required value="<%=eq.getTipo() %>">
+                                    <input type="text" class="form-control" name="tipo" required value="<%=e.getTipo() %>">
                                 </div>
                             </div>
-
-                            <div class="col-xs-4 col-md-3">
-                                <div class="form-group">
-                                    <label class="form-control-label">Descricao<span class="form-asterisk">*</span></label>
-                                    <textarea rows="5" type="text" class="form-control" name="descricao"><%=eq.getDescricao() %></textarea>
-                                </div>
-                            </div>
-
 
                             <div class="col-xs-4 col-md-2">
                                 <div class="form-group">
                                     <label class="form-control-label">Data de Instalação<span class="form-asterisk">*</span></label>
-                                    <input type="text" class="form-control" name="data_instalacao" value="<%=eq.getDataInstalacao() %>">
+                                    <input type="text" class="form-control" name="data_instalacao" value="<%=e.getDataInstalacao() %>">
                                 </div>
                             </div>
 
