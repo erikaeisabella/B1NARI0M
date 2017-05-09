@@ -1,0 +1,10 @@
+v1
+
+-- Manter Componente (Inserir Componente e Alterar Componente)
+-- Cliente Cancela o proprio chamado (Manter Chamado)
+-- Cliente lista seus chamados (Manter Chamado)
+-- Requisição de Componentes via técnico e aprovação via Chefe
+
+v2
+
+-- Estoque (Inserir no Estoque,Pegar Componentes, Checar Estoque, Requisitar Componentes e Aprovar Requisição de Componentes )
